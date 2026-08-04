@@ -1,0 +1,269 @@
+SIMATS ENGINEERING
+ASSESSMENT TOOL 2
+
+
+COURSE NAME:	MLA03
+COURSE CODE: Reinforcement learning
+
+
+
+COURSE OUTCOME COVERED
+
+CO1: Analyze reinforcement learning frameworks and Markov Decision Process concepts to model decision-making problems.( BL2, BL3)
+
+Assessment Tool Weightage: 50%
+
+
+Dr G.A. SENTHIL
+QUESTIONS: 10	Total Marks:50
+
+Annexure A
+Constraint - Based Problem-Solving
+
+Code of Conduct:
+
+I DEEPAK R /192325027 (Name / Reg No) certify that this submission is my original work and that I have adhered to the guidelines specified for this assessment.
+I understand that any violation of academic integrity rules will result in disciplinary action.
+
+Signature of the student: Vignesh S
+ 
+Qn 1)
+import numpy as np import random
+
+grid_size = 5
+goal = (4, 4)
+obstacles = [(2, 2), (1, 3)]
+
+actions = [(0,1),(0,-1),(1,0),(-1,0)]
+Q = np.zeros((grid_size, grid_size, 4))
+
+alpha = 0.1
+gamma = 0.9
+epsilon = 0.2
+for episode in range(500): state = (0,0)
+while state != goal:
+if random.random() < epsilon: action = random.randint(0,3)
+else:
+action = np.argmax(Q[state[0], state[1]])
+
+move = actions[action] next_state = (
+max(0,min(grid_size-1,state[0]+move[0])), max(0,min(grid_size-1,state[1]+move[1]))
+)
+
+if next_state in obstacles: reward = -10 next_state = state
+elif next_state == goal: reward = 100
+else:
+reward = -1
+
+Q[state[0],state[1],action] += alpha * (
+reward + gamma * np.max(Q[next_state[0],next_state[1]])
+- Q[state[0],state[1],action]
+)
+
+state = next_state print(Q)
+OUTPUT
+ 
+ 
+Qn 2)
+import numpy as np import random
+
+arms = [0.2, 0.5, 0.8]
+epsilons = [0.1, 0.3, 0.5]
+
+for epsilon in epsilons:
+Q = np.zeros(3)
+N = np.zeros(3) reward_sum = 0
+for i in range(500):
+if random.random() < epsilon: arm = random.randint(0,2)
+else:
+arm = np.argmax(Q)
+reward = 1 if random.random() < arms[arm] else 0 N[arm] += 1
+Q[arm] += (reward - Q[arm]) / N[arm] reward_sum += reward
+
+print("Epsilon:", epsilon) print("Rewards:", reward_sum)
+
+OUTPUT:
+ 
+ 
+Qn 3)
+states = ["Start", "Road", "Destination"] actions = ["Move", "Wait"]
+
+transition = { "Start":{"Move":"Road"},
+"Road":{"Move":"Destination"}, "Destination":{"Move":"Destination"}
+}
+
+reward = { "Start":-2,
+"Road":-1, "Destination":100
+}
+energy = 20 state = "Start"
+while state != "Destination" and energy > 0: action = "Move"
+state = transition[state][action] energy -= 5
+print(state, reward[state], energy)
+
+OUTPUT:
+ 
+
+Qn 4)
+import numpy as np grid = 4
+gamma = 0.9
+
+V = np.zeros((grid,grid)) goal = (3,3)
+for iteration in range(100): newV = V.copy()
+
+for i in range(grid): for j in range(grid):
+
+if (i,j)==goal: continue
+ 
+values=[]
+for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+
+ni=max(0,min(grid-1,i+dx)) nj=max(0,min(grid-1,j+dy))
+
+reward=-1 values.append(reward+gamma*V[ni,nj])
+newV[i,j]=max(values)
+
+V=newV print(V) OUTPUT:
+
+
+
+
+Qn 5)
+
+battery = 30
+deliveries = 0
+
+while battery >= 5: deliveries += 1
+battery -= 5 print("Delivery", deliveries)
+
+print("Maximum Deliveries =", deliveries)
+
+OUTPUT:
+ 
+ 
+Qn 6)
+signals = ["North", "East", "South", "West"] emergency = "East"
+for signal in signals:
+if signal == emergency: print(signal, "GREEN")
+else:
+print(signal, "RED")
+
+OUTPUT:
+ 
+
+Qn 7)
+
+import random bandwidth = 100
+for packet in range(10):
+usage = random.randint(5,20) if bandwidth >= usage:
+bandwidth -= usage reward = 10
+print("Packet Sent", reward) else:
+reward = -5 print("Dropped", reward)
+print("Remaining Bandwidth:", bandwidth)
+ 
+OUTPUT:
+ 
+
+Qn 8)
+
+import random arms = [0.3,0.6,0.8]
+random_reward = 0
+
+for i in range(500):
+arm = random.randint(0,2)
+random_reward += 1 if random.random()<arms[arm] else 0 print("Random Reward:", random_reward)
+epsilon = 0.1
+
+Q=[0,0,0]
+N=[0,0,0]
+reward_sum=0
+
+for i in range(500):
+
+if random.random()<epsilon: arm=random.randint(0,2)
+else:
+arm=Q.index(max(Q))
+reward=1 if random.random()<arms[arm] else 0 N[arm]+=1
+Q[arm]+= (reward-Q[arm])/N[arm] reward_sum+=reward
+print("Epsilon Greedy Reward:", reward_sum)
+ 
+OUTPUT:
+ 
+
+Qn 9)
+
+battery = 100
+
+no_fly = [3,5]
+for location in range(1,8): if location in no_fly:
+print("Avoid Location", location)
+continue
+
+if battery < 15: print("Battery Low") break
+
+battery -= 15
+
+print("Delivered at", location) print("Battery Left:", battery) OUTPUT:
+
+
+
+
+
+
+
+
+
+Qn 10)
+
+import random threshold = 80
+usage = 0
+
+for hour in range(24):
+
+consume = random.randint(2,6)
+ 
+if usage + consume <= threshold: usage += consume
+reward = 10 else:
+reward = -10
+
+print("Hour:", hour+1, "Usage:", usage, "Reward:", reward) print("Total Energy Used:", usage)
+OUTPUT:
+ 
+ 
+\RUBRICS FOR CALCULATION
+
+Criteria	Weightage	Level 4 (Exemplary)	Level 3 (Proficient)	Level 2 (Developing)	Level 1 (Beginning)
+
+
+Problem Understanding	
+
+25%	Clearly defines the problem and identifies all relevant constraints
+accurately	
+Identifies most constraints with minor gaps	
+Partial understanding; misses key constraints	
+Fails to identify constraints correctly
+
+Constraint Analysis	
+
+25%	Analyzes constraints effectively and prioritizes them
+logically	Provides reasonable analysis with some
+prioritization	
+Limited analysis; weak prioritization	
+No meaningful analysis or prioritization
+
+Solution Development	
+
+25%	Develops optimal and feasible solutions satisfying all constraints	Develops workable solutions with minor limitations	
+Solutions partially satisfy constraints	
+Solutions do not meet constraints
+
+Application of Concepts	
+15%	Effectively applies appropriate concepts,
+methods, or tools	
+Applies concepts with minor errors	Limited application; requires guidance	Unable to apply relevant concepts
+
+Justification	
+10%	Provides strong justification for
+decisions with logical reasoning	Provides justification with some clarity	
+Weak or unclear justification	
+No justification provided
+
