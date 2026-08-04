@@ -1,0 +1,221 @@
+SIMATS ENGINEERING
+ASSESSMENT TOOL 1
+
+
+COURSE NAME:	MLA03
+COURSE CODE: Reinforcement learning for Environment and Agent
+
+
+
+COURSE OUTCOME COVERED
+CO2: Apply Dynamic Programming methods to solve reinforcement learning problems and derive optimal policies for decision-making tasks. (BL2, BL3)
+
+Assessment Tool Weightage: 35%
+
+Dr G. A. SENTHIL
+QUESTIONS: 10	Total Marks: 50
+
+
+
+Annexure A
+
+Industry Problem Task	Duration: 2.5hrs
+Code of Conduct:
+
+I DEEPAK R / 192325027 (Name / Reg No) certify that this submission is my original work and that I have adhered to the guidelines specified for this assessment.
+I understand that any violation of academic integrity rules will result in disciplinary action.
+
+Signature of the student: Vignesh S
+
+ANSWERS
+Q1) Reinforcement Learning for Delivery-Route Optimization in Logistics
+Objective: Minimize total delivery time, distance and cost for a fleet that must serve many drop-off points while road and traffic conditions keep changing.
+Why RL is suitable: Routing is a sequence of decisions where each choice affects the ones that follow, and the environment is dynamic and uncertain. Unlike fixed rule-based routing, RL learns a policy from experience, adapts to live conditions, and optimizes the long-term cost of a whole route rather than one greedy step.
+Agent and environment: The agent is the routing controller for a vehicle or the fleet dispatcher. The environment is the road network together with traffic, weather and the current set of pending deliveries.
+ 
+States: Current vehicle location, the set of remaining delivery points, live traffic and road conditions, time of day, and remaining fuel or driver hours.
+Actions: Choose the next road segment or the next stop to visit; at fleet level, assign or re-assign deliveries among vehicles.
+Reward design: Positive reward for completing a delivery on time and for choosing shorter, faster segments. Negative reward for delays, extra distance, fuel consumption and missed time windows.
+Policy and action selection: An epsilon-greedy or softmax policy over learned action values selects the next move, mostly exploiting the best-known route while occasionally trying alternatives to discover faster paths.
+Learning process: Value-based methods such as Q-learning or Deep Q-Networks estimate the expected cost-to-go of each choice. The agent balances exploration of new roads against exploitation of proven routes, updating estimates from the rewards it observes.
+Continuous learning: As the system logs actual travel times and delivery outcomes, it refines its value estimates, so it adapts to roadworks, seasonal traffic and new customers and steadily improves efficiency.
+
+
+Figure 1: Reinforcement Learning for Delivery-Route Optimization in Logistics.
+Real-world industry example: UPS's ORION system and Amazon's logistics network optimize routes from large volumes of historical and live delivery data, cutting millions of miles and fuel cost each year.
+Advantages and expected outcomes: Lower fuel and labour cost, faster and more reliable deliveries, higher on-time rates, and a routing system that keeps improving automatically as conditions change.
+
+Q2) Reinforcement Learning for Fraud Detection in Fintech
+Objective: Detect fraudulent transactions in real time while keeping false alarms on genuine customers low.
+Why RL is suitable: Fraud patterns shift as attackers adapt, so static rules go stale quickly. RL continuously updates its policy from feedback and learns a decision strategy that trades off catching fraud against inconveniencing real customers over the long run.
+ 
+Agent and environment: The agent is the fraud-scoring engine. The environment is the stream of incoming transactions produced by both genuine users and adapting fraudsters.
+State space: Transaction amount, location, merchant type, device and IP, time since the last transaction, and an aggregated customer risk profile.
+Action space: Approve the transaction, decline or flag it for review, or request step-up authentication such as a one-time password.
+Reward mechanism: Positive reward for correctly catching fraud and for approving legitimate transactions. Large negative reward for missing fraud, and a smaller negative reward for false alarms that block genuine customers.
+Policy and action selection: The agent uses a mostly-exploiting policy on high-confidence cases and explores on ambiguous ones, so it keeps sampling uncertain patterns instead of blindly approving them.
+Learning process and exploration: Because confirmed fraud is rare, exploration is essential. Strategies such as epsilon-greedy, optimistic initialization or Thompson sampling make the agent test uncertain transactions, which surfaces new fraud patterns and improves detection accuracy over time.
+Continuous learning: When chargebacks and investigation results arrive, they become delayed labels that update the policy, so the system tracks emerging fraud tactics.
+
+
+Figure 2: Reinforcement Learning for Fraud Detection in Fintech.
+Real-world industry example: Payment firms such as PayPal, Stripe and Mastercard use adaptive learning models that continuously retrain on transaction feedback to score fraud risk.
+Advantages and expected outcomes: Higher fraud-catch rate, fewer false declines, faster adaptation to new attacks, and reduced financial loss and customer friction.
+
+Q3) Reinforcement Learning for Content Recommendation on a Streaming Platform
+Objective: Recommend content that maximizes long-term user engagement and satisfaction rather than just the next click.
+Why RL is suitable: Recommendations form a sequence that shapes future behaviour, and RL optimizes cumulative engagement over a session or a subscription lifetime, which fits the platform's real goal better than one-shot prediction.
+Agent and environment: The agent is the recommender. The environment is the user population and the content catalogue, whose preferences drift over time.
+ 
+States: User profile, watch and rating history, current session context such as time and device, and recent interactions.
+Actions: Select the next title, list or thumbnail to present to the user.
+Reward design: Positive reward for watch time, completion and return visits. Negative or zero reward for skips, quick exits and unsubscribes.
+Policy and action selection: A contextual-bandit or policy-gradient method chooses items, balancing showing safe favourites against exploring new genres the user might enjoy.
+Learning process: The agent learns from streams of feedback, but rewards are delayed because true satisfaction shows up as long-term retention. Discounting and value bootstrapping credit early recommendations for later engagement.
+Impact of delayed rewards and changing preferences: Delayed rewards make credit assignment hard, so the agent must connect a recommendation to engagement that appears much later. Changing preferences mean the policy has to keep exploring, otherwise it over-fits to stale tastes and engagement falls.
+
+
+
+Figure 3: Reinforcement Learning for Content Recommendation on a Streaming Platform.
+Real-world industry example: Netflix and YouTube use learning-based recommenders that optimize long-term watch time and retention, not just immediate clicks.
+Advantages and expected outcomes: Higher engagement and retention, better discovery of new content, and a recommender that adapts as tastes and the catalogue evolve.
+
+Q4) Reinforcement Learning for Predictive Maintenance
+Objective: Decide when to inspect, repair or replace industrial equipment so as to prevent failures while avoiding unnecessary downtime.
+Why RL is suitable: Maintenance is a sequential decision under uncertainty about hidden wear. RL learns a condition-based policy that adapts to each machine, which a fixed-schedule rule cannot do.
+Agent and environment: The agent is the maintenance controller; the environment is the machine and its sensor stream operating under varying load.
+States: Sensor readings such as vibration, temperature and pressure, machine age, cumulative load, and time since the last service.
+Actions: Keep running, schedule an inspection, perform a repair, or replace a component.
+ 
+Reward design: Positive reward for uptime and completed production. Negative reward for unexpected breakdowns, for maintenance performed too early, and for safety incidents.
+Policy and action selection: A learned value function ranks actions by expected long-run cost, and the agent mostly exploits it while exploring on uncertain conditions.
+Learning process: Deep RL or model-based methods learn the relationship between sensor patterns and failure risk from operating history and outcomes.
+Comparison with rule-based approaches: Rule-based maintenance uses fixed intervals or thresholds and cannot adapt to actual condition, so it either services too often or misses early faults. RL adapts to each machine and workload, but it needs enough failure data to learn, and in safety-critical plants a poorly trained agent could take risky actions, so it is usually run with safety constraints and human oversight.
+Risks and reliability concerns: Sparse failure data, distribution shift when machines change, and the cost of exploration on real equipment are the main risks; conservative policies, simulation training and human approval mitigate them.
+
+Figure 4: Reinforcement Learning for Predictive Maintenance.
+Real-world industry example: Siemens and GE use sensor-driven predictive-maintenance systems on turbines and industrial assets to cut unplanned downtime.
+Advantages and expected outcomes: Fewer unexpected failures, lower maintenance cost, longer asset life, and safer operations, provided reliability safeguards are in place.
+
+Q5) Reinforcement Learning for Transportation and Bus Scheduling
+Objective: Optimize bus schedules and route allocation to reduce passenger waiting time and operating cost while meeting demand.
+Why RL is suitable: Demand and traffic vary through the day, and scheduling choices affect later ones. RL learns an adaptive policy from real-time data that static timetables cannot match.
+Agent and environment: The agent is the transit scheduler or dispatcher; the environment is the city transit network with its passengers, buses and traffic.
+States: Passenger demand per stop, current bus positions and occupancy, time of day, and traffic conditions.
+ 
+Actions: Adjust departure frequency, allocate buses to routes, hold or dispatch a bus, or re-route around congestion.
+Reward design: Positive reward for passengers served and short waits. Negative reward for long waiting times, overcrowding, empty runs and excess fuel.
+Policy and action selection: A learned policy chooses dispatch actions, exploiting known good schedules while exploring adjustments during unusual demand.
+Learning process: Value-based or actor-critic methods learn from logged trips and, where available, simulation of the network.
+Role of real-time data: Live GPS, ticketing and demand feeds let the agent react to surges, incidents and weather immediately, so performance improves as more real-time data is incorporated.
+
+
+Figure 5: Reinforcement Learning for Transportation and Bus Scheduling.
+Real-world industry example: Transit authorities and firms in Singapore and several Chinese cities use data-driven dynamic scheduling and adaptive traffic-signal control.
+Advantages and expected outcomes: Shorter passenger waits, better bus utilization, lower operating cost, and schedules that adapt to real demand.
+
+Q6) Reinforcement Learning for Dynamic Pricing in E-commerce
+Objective: Set and adjust prices in real time to maximize long-term revenue and profit while remaining competitive.
+Why RL is suitable: Pricing decisions influence demand, inventory and customer behaviour over time, and the true demand curve is unknown. RL learns pricing from market response and optimizes cumulative profit.
+Agent and environment: The agent is the pricing engine; the environment is the market of customers and competitors together with the seller's inventory.
+State space: Current demand, inventory level, competitor prices, time and seasonality, customer segment, and recent conversion rates.
+Action space: Raise, lower or hold the price, or select a discount level from a set of allowed price points.
+Reward function: Positive reward for realized profit and cleared inventory. Negative reward for lost sales from overpricing and for unsold or discounted stock from underpricing.
+ 
+Policy and action selection: A contextual-bandit or value-based policy picks price points, learning elasticity for each context.
+Learning process: The agent updates value estimates from observed sales at each price, gradually mapping how demand responds to price in each state.
+Balancing exploration and exploitation: The core challenge is that testing prices to learn elasticity (exploration) can lose short-term revenue, while always charging the current best price (exploitation) leaves the demand curve poorly understood. Careful exploration such as bounded price experiments or Thompson sampling keeps this trade-off safe.
+
+Figure 6: Reinforcement Learning for Dynamic Pricing in E-commerce.
+Real-world industry example: Amazon changes millions of prices a day and Uber uses surge pricing, both driven by adaptive demand models.
+Advantages and expected outcomes: Higher revenue and margin, better inventory turnover, faster response to market shifts, and data-driven pricing that improves over time.
+
+Q7) Reinforcement Learning for Smart-City Waste Management
+Objective: Collect waste before bins overflow while minimizing truck mileage, fuel and labour.
+Why RL is suitable: Bin fill rates are uncertain and collection is a sequential routing and scheduling problem, so an adaptive learned policy beats fixed collection days.
+Agent and environment: The agent is the collection scheduler and router; the environment is the city's bins, roads and collection fleet.
+MDP components — states: Fill levels reported by bin sensors, bin locations, truck positions and remaining capacity, and time of day.
+MDP components — actions: Decide which bins to service now, in what order, and how to route each truck; optionally skip bins that are nearly empty.
+MDP components — rewards: Positive reward for servicing bins before they overflow and for efficient routes. Negative reward for overflow, wasted trips to empty bins, and fuel use.
+Policy and action selection: A learned policy prioritizes bins and routes, exploiting good patterns while exploring on unusual fill situations.
+ 
+Learning process: Value-based methods learn fill-rate patterns and routing value from historical and live sensor data.
+Continuous updates: As sensors stream fill data, the agent updates its predictions and routes, so collection adapts to events, seasons and neighbourhood changes and operational efficiency keeps rising.
+
+
+Figure 7: Reinforcement Learning for Smart-City Waste Management.
+Real-world industry example: Smart-bin systems such as those from Enevo and deployments in Barcelona and Songdo use sensor-driven, optimized collection routing.
+Advantages and expected outcomes: Fewer overflows, shorter routes, lower cost and emissions, and cleaner cities with data-driven collection.
+
+Q8) Reinforcement Learning for Network Bandwidth Allocation in Telecom
+Objective: Allocate limited network bandwidth across competing flows to maximize throughput and meet quality-of-service targets.
+Why RL is suitable: Traffic is bursty and non-stationary, and allocation now affects congestion later. RL learns an adaptive allocation policy that fixed schemes cannot match.
+Agent and environment: The agent is the network controller or scheduler; the environment is the network with its links, queues and traffic demand.
+States: Current traffic load per flow, queue lengths, link utilization, latency, and QoS requirements of active services.
+Actions: Assign bandwidth shares to flows, admit or throttle connections, and route traffic across links.
+Reward design: Positive reward for high throughput and for meeting latency and QoS targets. Negative reward for congestion, dropped packets and violated service levels.
+Policy and action selection: A learned policy allocates capacity, exploiting good allocations while exploring under new traffic mixes.
+Learning process: Deep RL learns from live network telemetry and simulation to map traffic states to good allocations.
+ 
+Adaptation to dynamic conditions: Because the agent updates continuously, it reacts to traffic spikes, link failures and changing service mixes, reallocating capacity in real time to hold performance.
+
+
+Figure 8: Reinforcement Learning for Network Bandwidth Allocation in Telecom.
+Real-world industry example: 5G network slicing and data-centre traffic engineering, including Google's B4 WAN, use learning-based resource control.
+Advantages and expected outcomes: Higher utilization, better QoS, fewer dropped connections, and a network that adapts automatically to demand.
+
+Q9) Reinforcement Learning for Portfolio Management in Finance
+Objective: Allocate capital across assets to maximize risk-adjusted return over time.
+Why RL is suitable: Investing is sequential, decisions compound, and markets are uncertain and non-stationary. RL optimizes long-horizon, risk-adjusted return and can adapt allocations as conditions change.
+Agent and environment: The agent is the portfolio manager; the environment is the financial market with prices, volatility and macro conditions.
+States: Asset prices and returns, current holdings and cash, volatility and correlations, and technical or macro indicators.
+Actions: Rebalance the portfolio by buying, selling or holding each asset, or adjusting position weights.
+Reward design: Positive reward for risk-adjusted gains measured by metrics like the Sharpe ratio. Negative reward for losses, large drawdowns and transaction costs.
+Policy and action selection: A policy-gradient or actor-critic method outputs portfolio weights, exploring allocations while exploiting learned strategies.
+Learning process: The agent learns from historical and simulated market trajectories, using discounting to weigh future returns.
+Advantages over traditional models and challenges: Compared with fixed mean-variance optimization, RL adapts to regime changes and captures non-linear patterns. The challenges are delayed and noisy rewards, the risk of over-fitting to past data, and market non-stationarity, so risk limits and robust validation are essential.
+ 
+ 
+
+
+Figure 9: Reinforcement Learning for Portfolio Management in Finance.
+Real-world industry example: Quant funds and firms such as JPMorgan and BlackRock research RL and adaptive models for allocation and execution.
+Advantages and expected outcomes: Potentially better risk-adjusted returns and adaptivity, provided risk controls guard against over-fitting and tail losses.
+
+Q10) Reinforcement Learning for Renewable Energy Management
+Objective: Manage generation, storage and distribution so that demand is met reliably using as much renewable energy as possible.
+Why RL is suitable: Renewable supply and demand are uncertain and time-coupled through storage, so decisions now affect later options. RL learns an adaptive control policy that handles this better than fixed rules.
+Agent and environment: The agent is the energy management controller; the environment is the grid with its generation, storage, loads and weather.
+RL framework — states: Current renewable generation, demand, battery storage level, electricity price, and weather forecast.
+RL framework — actions: Store surplus energy, dispatch stored energy, draw from or sell to the grid, and curtail generation when needed.
+RL framework — rewards: Positive reward for meeting demand from renewables and for profitable trades. Negative reward for wasted generation, unmet demand and reliance on expensive backup power.
+Policy and action selection: A learned policy schedules storage and dispatch, exploiting good strategies while exploring under unusual weather.
+Learning process: Deep RL learns from historical generation, demand and weather data, using forecasts to plan ahead.
+Impact of environmental uncertainty: Weather-driven variability makes generation hard to predict, so the agent must act under uncertainty; better forecasts and continual learning reduce this uncertainty and improve decisions over time.
+ 
+ 
+
+
+
+
+Figure 10: Reinforcement Learning for Renewable Energy Management.
+Real-world industry example: Google DeepMind's control of data-centre cooling and wind-energy scheduling shows large efficiency gains from learned control.
+Advantages and expected outcomes: Higher renewable utilization, lower cost and emissions, better grid reliability, and control that improves as data accumulates.
+
+RUBRICS FOR CALCULATION
+
+Criteria	Weighta ge	Level 4 – Exemplary	Level 3 – Proficient	Level 2 – Developing	Level 1 – Beginning
+Criteria	Weightag e	Level 4 – Exemplary	Level 3 – Proficient	Level 2 – Developing	Level 1 – Beginning
+Understanding of Industry Problem	20%	Comprehensiv e understanding of real-world problem and constraints	Good understandi ng with minor gaps in requirement s	Basic understanding
+; some requirements unclear	Poor understand ing; misinterpr ets problem context
+Application of Engineering Concepts	25%	Applies advanced and relevant concepts effectively to
+solve the problem	Applies appropriate concepts with minor errors	Limited application of concepts	Incorrect or no application of concepts
+Solution Design	25%	Innovative, practical, and feasible solution aligned with industry
+standards	Logical and feasible solution with minor gaps	Basic solution with limited feasibility	Unclear or impractical solution
+Use of Tools	15%	Effective use of	Appropriate	Limited or	Minimal or
+ 
+		modern tools, technologies, and real data	use of tools with correct implementa tion	inconsistent use of tools	incorrect use of tools
+Analysis	10%	Thorough analysis with validated results and performance
+evaluation	Good analysis with reasonable validation	Basic analysis with limited validation	Poor or no analysis
+Professionalism	5%	Highly professional, well-documented, and clearly presented work	Good documentati on and presentatio n	Basic documentatio n with some gaps	Poor documenta tion and presentatio n
+
