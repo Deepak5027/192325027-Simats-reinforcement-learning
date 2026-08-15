@@ -1,0 +1,662 @@
+1.# Problem Statement
+
+Reinforcement Learning (RL) is a branch of machine learning where an **agent** learns to make decisions by interacting with an **environment**. Unlike supervised learning, there is no labeled dataset; instead, the agent learns through trial and error, receiving feedback in the form of **rewards** or **penalties** based on the **actions** it takes in different **states**. The challenge is to clearly describe and predict this agent–environment interaction loop, and explain how the concept of cumulative reward drives the agent's decision-making process over time.
+
+# Objectives
+
+- Understand and explain the core components of the RL framework: agent, environment, state, action, and reward.
+- Describe how the agent perceives the environment's state and selects an action accordingly.
+- Explain how the environment responds to an action by transitioning to a new state and issuing a reward.
+- Discuss the concept of cumulative (long-term) reward and its role in shaping the agent's policy/decision-making strategy.
+- Illustrate the agent–environment interaction cycle using a diagram or step-by-step explanation.
+
+# Eligibility
+
+- Open to students/participants with a basic understanding of machine learning concepts.
+- Prior exposure to Python programming and elementary probability/statistics is recommended.
+- No prior RL experience is mandatory, but conceptual clarity on ML fundamentals is expected.
+
+# Challenge Rules
+
+- The explanation must correctly define all key RL terms: agent, environment, state, action, reward, and policy.
+- The response should include a clear depiction (textual or diagrammatic) of the agent–environment feedback loop.
+- Plagiarized or copy-pasted definitions from external sources without original explanation will be disqualified.
+- The discussion on cumulative reward must connect to how it influences an agent's choice of actions (i.e., not just define it in isolation).
+- Submissions must be original and in the participant's own words.
+
+# Programming Languages
+
+- Python (preferred, using libraries such as `gymnasium`/`OpenAI Gym`, `NumPy` for demonstration if code is included)
+- Pseudocode is acceptable for conceptual illustration
+- No strict language requirement if the response is purely descriptive/theoretical
+
+# Environment Setup
+
+- Python 3.8 or above
+- Recommended libraries (if demonstrating with code):
+  - `gymnasium` or `gym`
+  - `numpy`
+  - `matplotlib` (for optional visualization of reward trends)
+- A Jupyter Notebook or any Python IDE (VS Code, PyCharm, Google Colab) for optional practical demonstration
+
+# Input Format
+
+- A conceptual/theoretical prompt (no dataset required)
+- Optional: If demonstrating practically, input can be an environment name (e.g., `CartPole-v1`) from a standard RL library
+
+# Output Format
+
+- A structured written explanation covering:
+  1. Definition of the RL framework
+  2. Description of agent–environment interaction (with states, actions, rewards)
+  3. Explanation of cumulative reward and its impact on decision-making
+- Optional: A diagram illustrating the interaction loop (Agent → Action → Environment → State/Reward → Agent)
+- Optional: Sample code snippet demonstrating one interaction step, if applicable
+
+# Constraints
+
+- Explanation should be concise yet complete (recommended: 300–600 words if written format)
+- Avoid overly technical jargon without explanation — clarity is key
+- No use of copyrighted textbook content verbatim
+- If code is included, it should be minimal and only for illustrative purposes (not a full RL algorithm implementation)
+
+# Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct and precise definition of agent, environment, state, action, reward | 25% |
+| Clarity of Interaction Description | Clear explanation of the agent–environment feedback loop | 25% |
+| Depth on Cumulative Reward | Quality of discussion on how cumulative reward drives decision-making/policy | 25% |
+| Originality & Presentation | Well-structured, original explanation, use of diagrams/examples | 15% |
+| Language & Communication | Clarity, grammar, and logical flow of explanation | 10% |
+
+2.# Problem Statement
+
+Many real-world decision-making problems — such as robot navigation, game playing, or resource allocation — involve a sequence of decisions where each choice affects future outcomes. The **Markov Decision Process (MDP)** provides a formal mathematical framework to model such sequential decision-making problems under uncertainty. The challenge is to estimate and explain how a given decision-making problem can be modeled as an MDP by identifying and detailing its core components: state space, action space, transition probability, reward function, and discount factor.
+
+# Objectives
+
+- Understand the formal definition of an MDP as a tuple (S, A, P, R, γ).
+- Explain how a real-world decision-making problem can be mapped onto the MDP framework.
+- Detail the role and mathematical representation of the action space.
+- Describe transition probability and how it captures the uncertainty in environment dynamics.
+- Explain the reward function and its role in guiding the agent toward desirable outcomes.
+- Discuss the significance of the discount factor in balancing immediate versus future rewards.
+
+# Eligibility
+
+- Open to students/participants with foundational knowledge of probability theory and machine learning.
+- Basic understanding of RL concepts (state, action, reward) is recommended, though not mandatory.
+- Familiarity with basic linear algebra/probability notation is helpful.
+
+# Challenge Rules
+
+- The MDP must be correctly defined using its standard 5-tuple: (S, A, P, R, γ).
+- Each component (state space, action space, transition probability, reward function, discount factor) must be explained individually with proper notation.
+- The explanation must include a concrete example (real-world or hypothetical) demonstrating how a problem is mapped to an MDP.
+- The Markov Property (memorylessness) must be explicitly stated and explained.
+- Submissions must be original; direct reproduction of textbook definitions without explanation will be disqualified.
+
+# Programming Languages
+
+- Python (preferred, using libraries such as `NumPy`, `gymnasium`/`OpenAI Gym` for demonstration if code is included)
+- Pseudocode is acceptable for illustrating transition/reward modeling
+- No strict language requirement if the response is purely descriptive/theoretical
+
+# Environment Setup
+
+- Python 3.8 or above
+- Recommended libraries (if demonstrating with code):
+  - `gymnasium` or `gym`
+  - `numpy`
+  - `matplotlib` (optional, for visualizing state-transition diagrams)
+- A Jupyter Notebook or any Python IDE (VS Code, PyCharm, Google Colab) for optional practical demonstration
+
+# Input Format
+
+- A conceptual/theoretical prompt describing a decision-making scenario (no dataset required)
+- Optional: If demonstrating practically, input can include a sample state space, action set, and reward structure for a simple problem (e.g., grid-world navigation)
+
+# Output Format
+
+- A structured written explanation covering:
+  1. Formal definition of MDP as a tuple (S, A, P, R, γ)
+  2. Detailed description of action space with examples
+  3. Explanation of transition probability P(s'|s,a) and environment uncertainty
+  4. Explanation of reward function R(s,a,s') and its purpose
+  5. Discussion of discount factor γ and its effect on long-term vs. short-term reward weighting
+- Optional: A state-transition diagram or table illustrating the MDP components
+- Optional: A minimal code snippet defining a sample MDP (states, actions, transition matrix, rewards)
+
+# Constraints
+
+- Explanation should be concise yet complete (recommended: 400–700 words if written format)
+- Mathematical notation should be used correctly but explained in plain language alongside
+- No use of copyrighted textbook content verbatim
+- If code is included, it should only illustrate MDP components (not a full solving algorithm like value iteration)
+
+# Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definition of MDP tuple and its components (S, A, P, R, γ) | 25% |
+| Depth of Component Explanation | Quality of explanation for action space, transition probability, reward function, and discount factor | 30% |
+| Real-World Mapping | Effectiveness of the example demonstrating how a problem is modeled as an MDP | 20% |
+| Originality & Presentation | Well-structured, original explanation, use of diagrams/notation/examples | 15% |
+| Language & Communication | Clarity, grammar, and logical flow of explanation | 10% |
+
+3.# Question 3
+
+## Problem Statement
+
+In Reinforcement Learning, an agent must learn not only *what to do* but also *how good* a given situation or action is in the long run. **Policy** and **value functions** are the two central constructs that address this. The challenge is to discuss the role of policy and value functions in RL, and examine how the **state-value function V(s)** and **action-value function Q(s,a)** help evaluate the long-term benefit of actions, using the **Bellman Equation** as the mathematical backbone.
+
+## Objectives
+
+- Define policy (π) as a mapping from states to actions (deterministic or stochastic).
+- Explain the state-value function V(s) and its interpretation as expected cumulative reward from a state.
+- Explain the action-value function Q(s,a) and its interpretation as expected cumulative reward from taking an action in a state.
+- Derive and explain the Bellman Equation for both V(s) and Q(s,a).
+- Discuss how value functions guide policy improvement and long-term decision-making.
+
+## Eligibility
+
+- Open to participants with foundational knowledge of MDPs (states, actions, rewards, transition probabilities).
+- Basic understanding of expectation and recursive relations is recommended.
+
+## Challenge Rules
+
+- Policy must be correctly defined, distinguishing deterministic π(s) and stochastic π(a|s) forms.
+- Both V(s) and Q(s,a) must be mathematically defined and explained in plain language.
+- The Bellman Equation (expectation form) must be derived/stated for both value functions.
+- The relationship between V(s), Q(s,a), and policy π must be explicitly connected.
+- Submissions must be original; verbatim textbook derivations without explanation will be disqualified.
+
+## Programming Languages
+
+- Python (optional, `NumPy` for illustrating value iteration on a small example)
+- Pseudocode acceptable for Bellman update illustration
+- No strict language requirement for a purely theoretical answer
+
+## Environment Setup
+
+- Python 3.8+ (optional)
+- Recommended libraries: `numpy`, `matplotlib` (for value function visualization)
+- Jupyter Notebook or any IDE for optional demonstration
+
+## Input Format
+
+- Conceptual/theoretical prompt (no dataset required)
+- Optional: a small grid-world or Markov chain example with defined states, actions, and rewards
+
+## Output Format
+
+A structured written explanation covering:
+1. Definition and role of policy (π)
+2. Definition of state-value function V(s) with formula
+3. Definition of action-value function Q(s,a) with formula
+4. Bellman Equation for V(s) and Q(s,a) (derivation/explanation)
+5. How value functions are used to evaluate and improve policies
+
+Optional: A worked numerical example applying the Bellman equation on a small state space.
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- Mathematical notation must be explained alongside formulas
+- No copyrighted textbook content verbatim
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definition of policy, V(s), Q(s,a) | 30% |
+| Bellman Equation Explanation | Correct derivation/statement and interpretation | 30% |
+| Linkage to Long-Term Decision-Making | Clear connection between value functions and policy evaluation/improvement | 25% |
+| Clarity & Presentation | Logical flow, correct notation, examples | 15% |
+
+---
+
+4.# Question 4
+
+## Problem Statement
+
+A core challenge in Reinforcement Learning is deciding whether the agent should **explore** new actions to discover potentially better rewards, or **exploit** known actions that currently yield the best reward. This is known as the **exploration–exploitation trade-off**. The task is to justify why this trade-off is necessary and to compare two common strategies — **ε-greedy** and **softmax (Boltzmann) exploration** — in terms of how they balance learning efficiency and performance.
+
+## Objectives
+
+- Explain why exploration and exploitation are both necessary in RL.
+- Justify the consequences of over-exploration (slow convergence) and over-exploitation (suboptimal/local-optimum policies).
+- Describe the ε-greedy strategy: mechanism, role of ε, and its strengths/limitations.
+- Describe the softmax/Boltzmann strategy: mechanism, role of temperature parameter, and its strengths/limitations.
+- Compare both strategies on criteria such as learning efficiency, adaptability, and computational simplicity.
+
+## Eligibility
+
+- Open to participants with basic understanding of RL concepts (agent, action, reward, Q-values).
+- No advanced probability background required, though familiarity with probability distributions helps.
+
+## Challenge Rules
+
+- Both ε-greedy and softmax strategies must be correctly described with their respective formulas/mechanisms.
+- The trade-off must be justified with reasoning (not just stated as a definition).
+- A clear comparison (e.g., table or point-wise) must be provided contrasting the two strategies.
+- Submissions must be original; direct copying of standard definitions without justification/comparison will be disqualified.
+
+## Programming Languages
+
+- Python (optional, using `NumPy`/`random` to simulate ε-greedy vs. softmax action selection)
+- Pseudocode acceptable for illustrating both strategies
+- No strict language requirement for a purely theoretical answer
+
+## Environment Setup
+
+- Python 3.8+ (optional)
+- Recommended libraries: `numpy`, `matplotlib` (for plotting reward convergence comparison)
+- Jupyter Notebook or any IDE for optional demonstration
+
+## Input Format
+
+- Conceptual/theoretical prompt (no dataset required)
+- Optional: a multi-armed bandit setup with a defined set of actions and reward probabilities for simulation
+
+## Output Format
+
+A structured written explanation covering:
+1. Definition and justification of the exploration–exploitation trade-off
+2. Explanation of ε-greedy strategy with formula/mechanism
+3. Explanation of softmax strategy with formula/mechanism
+4. Comparative analysis of both strategies (efficiency, adaptability, tuning sensitivity)
+
+Optional: A simulation graph comparing cumulative reward/convergence of ε-greedy vs. softmax.
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- Formulas should be explained in plain language alongside notation
+- No copyrighted textbook content verbatim
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Justification of Trade-off | Sound reasoning for why exploration and exploitation are both needed | 25% |
+| Strategy Explanation | Correct and clear description of ε-greedy and softmax mechanisms | 30% |
+| Comparative Analysis | Quality and depth of comparison between the two strategies | 30% |
+| Clarity & Presentation | Logical flow, correct notation, structured comparison | 15% |
+# Question 5
+
+## Problem Statement
+
+Sparse or delayed rewards often make it difficult for an RL agent to learn efficiently, as it may take a long time before the agent stumbles upon a rewarding outcome. **Reward shaping** is a technique used to provide additional, intermediate feedback to guide the agent's learning process faster. The task is to explain how reward shaping accelerates learning and illustrate its role in preventing the agent from converging to suboptimal policies.
+
+## Objectives
+
+- Define reward shaping and distinguish it from the original/sparse reward function.
+- Explain how shaped rewards provide denser feedback signals to guide exploration.
+- Discuss the risk of poorly designed shaping rewards leading to unintended/suboptimal behavior.
+- Introduce the concept of potential-based reward shaping as a theoretically safe approach.
+- Illustrate with an example how shaping influences the speed and quality of policy convergence.
+
+## Eligibility
+
+- Open to participants with basic understanding of RL reward functions and policies.
+
+## Challenge Rules
+
+- Reward shaping must be clearly defined and differentiated from the base MDP reward.
+- The explanation must include the risk of "reward hacking" or suboptimal policy formation due to poor shaping.
+- Potential-based shaping (or an equivalent safeguard concept) should be mentioned to show awareness of theoretical guarantees.
+- A concrete example (e.g., maze navigation, robot reaching a goal) must be used for illustration.
+- Submissions must be original.
+
+## Programming Languages
+
+- Python (optional, for demonstrating shaped vs. unshaped reward convergence)
+- Pseudocode acceptable
+
+## Environment Setup
+
+- Python 3.8+ (optional); `numpy`, `matplotlib` for optional convergence plots
+- Jupyter Notebook or any IDE
+
+## Input Format
+
+- Conceptual/theoretical prompt
+- Optional: a simple environment (e.g., grid-world with sparse goal reward) as an illustrative case
+
+## Output Format
+
+A structured explanation covering:
+1. Definition of reward shaping
+2. How shaping accelerates learning (denser gradient of feedback)
+3. Example illustrating faster convergence with shaping
+4. Risks of suboptimal/unintended policies from poor shaping, and how to mitigate (e.g., potential-based shaping)
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- No copyrighted textbook content verbatim
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definition of reward shaping | 25% |
+| Explanation of Acceleration Effect | Clarity on why/how shaping speeds up learning | 30% |
+| Discussion of Suboptimality Risk | Depth of discussion on pitfalls and mitigation | 30% |
+| Clarity & Presentation | Logical flow, example quality | 15% |
+
+---
+
+# Question 6
+
+## Problem Statement
+
+Deploying RL agents on physical robots differs significantly from training in simulated environments. The task is to identify the key challenges of applying RL to real-world robotics and analyze how **safety**, **sample efficiency**, and **environment variability** affect the performance of the learning agent.
+
+## Objectives
+
+- Identify why real-world robotics poses unique challenges compared to simulated RL.
+- Explain the role of safety constraints during exploration/training on physical systems.
+- Discuss sample efficiency concerns given the cost/time of real-world data collection.
+- Explain how environment variability (sensor noise, unpredictable dynamics) affects policy robustness.
+- Discuss mitigation approaches (e.g., sim-to-real transfer, safe RL, offline RL).
+
+## Eligibility
+
+- Open to participants with basic RL knowledge and an interest in robotics applications.
+
+## Challenge Rules
+
+- All three factors (safety, sample efficiency, environment variability) must be addressed individually.
+- Each factor must be linked explicitly to its effect on agent performance/training.
+- At least one real-world mitigation strategy or technique should be mentioned per challenge.
+- Submissions must be original and reflect practical understanding, not just theoretical listing.
+
+## Programming Languages
+
+- Not strictly required (conceptual/analytical answer); Python may be referenced for simulation-based mitigation (e.g., domain randomization)
+
+## Environment Setup
+
+- Not applicable for a theoretical response; optional reference to robotics simulators (e.g., Gazebo, MuJoCo, Isaac Gym) for context
+
+## Input Format
+
+- Conceptual/theoretical prompt describing a robotics RL scenario
+
+## Output Format
+
+A structured explanation covering:
+1. Overview of real-world RL challenges in robotics
+2. Safety: risks and constraints during training
+3. Sample efficiency: cost/time challenges of physical data collection
+4. Environment variability: effect of noise/uncertainty on policy performance
+5. Brief note on mitigation strategies
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- Focus on analysis, not just definitions
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Identification of Challenges | Correct identification of safety, sample efficiency, variability | 25% |
+| Depth of Analysis | Quality of analysis on how each factor affects performance | 35% |
+| Practical Relevance | Realistic examples/mitigation strategies | 25% |
+| Clarity & Presentation | Logical flow, structure | 15% |
+
+---
+
+# Question 7
+
+## Problem Statement
+
+The discount factor (γ) in RL determines how much weight an agent places on future rewards relative to immediate ones. The task is to analyze how γ influences the balance between short-term and long-term decision-making, and evaluate its specific role in **episodic tasks**.
+
+## Objectives
+
+- Define the discount factor γ (0 ≤ γ ≤ 1) and its mathematical role in cumulative reward calculation.
+- Analyze the effect of a low γ (myopic behavior) versus a high γ (far-sighted behavior).
+- Discuss numerical/convergence implications of choosing γ.
+- Evaluate the specific role and necessity of γ in episodic (finite-horizon) tasks versus continuing tasks.
+
+## Eligibility
+
+- Open to participants with foundational understanding of MDPs and cumulative reward.
+
+## Challenge Rules
+
+- The mathematical formulation of discounted return (Gₜ = Σ γᵏ Rₜ₊ₖ₊₁) must be included.
+- Both extremes (γ→0 and γ→1) must be analyzed for their behavioral impact.
+- The distinction between episodic and continuing tasks must be addressed in relation to γ.
+- Submissions must be original.
+
+## Programming Languages
+
+- Python (optional, to plot discounted reward curves for different γ values)
+- Pseudocode acceptable
+
+## Environment Setup
+
+- Python 3.8+ (optional); `numpy`, `matplotlib` for optional plots
+
+## Input Format
+
+- Conceptual/theoretical prompt
+- Optional: an episodic task example (e.g., maze with terminal goal state)
+
+## Output Format
+
+A structured explanation covering:
+1. Definition and formula of discounted cumulative reward
+2. Impact of low vs. high γ on decision-making behavior
+3. Role of γ in ensuring convergence/mathematical stability
+4. Specific relevance and role of γ in episodic tasks (including γ=1 feasibility due to finite horizon)
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- Include correct mathematical notation with plain-language explanation
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definition and formula of discounted return | 25% |
+| Analysis of γ Extremes | Depth of analysis on short-term vs. long-term impact | 30% |
+| Episodic Task Relevance | Clear evaluation of γ's role specifically in episodic settings | 30% |
+| Clarity & Presentation | Logical flow, notation, structure | 15% |
+
+---
+
+# Question 8
+
+## Problem Statement
+
+RL algorithms can be broadly categorized into **model-free** and **model-based** approaches, differing in whether the agent learns or uses a model of the environment's dynamics. The task is to evaluate the effectiveness of model-free RL compared to model-based RL specifically in **dynamic (changing) environments**, and differentiate their respective strengths and limitations.
+
+## Objectives
+
+- Define model-free RL and model-based RL with representative examples (e.g., Q-learning vs. Dyna-Q/model-based planning).
+- Evaluate how each approach performs when environment dynamics change over time.
+- Discuss sample efficiency, computational cost, and adaptability trade-offs.
+- Differentiate strengths and limitations of both approaches in a structured comparison.
+
+## Eligibility
+
+- Open to participants with foundational RL knowledge, including familiarity with value-based methods.
+
+## Challenge Rules
+
+- Both paradigms must be correctly defined with at least one example algorithm each.
+- The evaluation must specifically address performance in **dynamic environments** (not just static comparison).
+- A structured comparison (table or point-wise) covering sample efficiency, computation, and adaptability must be included.
+- Submissions must be original.
+
+## Programming Languages
+
+- Python (optional, referencing libraries like `gymnasium`, `stable-baselines3` for illustrative context)
+- Pseudocode acceptable
+
+## Environment Setup
+
+- Python 3.8+ (optional); relevant RL libraries for context only, no implementation required
+
+## Input Format
+
+- Conceptual/theoretical prompt
+- Optional: a scenario where environment dynamics shift mid-training (e.g., changing transition probabilities)
+
+## Output Format
+
+A structured explanation covering:
+1. Definitions of model-free and model-based RL with examples
+2. Evaluation of effectiveness in dynamic environments
+3. Comparison of sample efficiency and computational cost
+4. Strengths and limitations of each approach (comparison table recommended)
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- No copyrighted textbook content verbatim
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definitions and examples of both paradigms | 25% |
+| Evaluation in Dynamic Environments | Depth of analysis on adaptability/effectiveness | 30% |
+| Comparative Differentiation | Quality of strengths/limitations comparison | 30% |
+| Clarity & Presentation | Logical flow, structure | 15% |
+
+---
+
+# Question 9
+
+## Problem Statement
+
+**Q-learning** is a foundational model-free, off-policy RL algorithm that learns the optimal action-value function through iterative updates. The task is to illustrate, with an example, how Q-learning updates the Q-value during training, and to demonstrate its convergence behavior toward the optimal policy.
+
+## Objectives
+
+- State the Q-learning update rule and explain each term (learning rate, reward, discount factor, max future Q-value).
+- Illustrate a step-by-step numerical example of a Q-value update.
+- Explain the concept of the Q-table and how it evolves over training episodes.
+- Demonstrate/discuss convergence behavior of Q-learning toward the optimal Q-function under suitable conditions.
+
+## Eligibility
+
+- Open to participants with foundational understanding of MDPs and value functions.
+
+## Challenge Rules
+
+- The Q-learning update formula must be correctly stated: Q(s,a) ← Q(s,a) + α[r + γ maxₐ' Q(s',a') − Q(s,a)]
+- A worked numerical example with at least one full update step must be shown.
+- Convergence behavior must be discussed (e.g., conditions like sufficient exploration, decaying learning rate).
+- Submissions must be original.
+
+## Programming Languages
+
+- Python (preferred for demonstrating a simple Q-learning update using `numpy`)
+- Pseudocode acceptable
+
+## Environment Setup
+
+- Python 3.8+ (optional); `numpy` for Q-table representation; `matplotlib` for optional convergence plot
+- Jupyter Notebook or any IDE
+
+## Input Format
+
+- Conceptual/theoretical prompt
+- Optional: a small grid-world with defined states, actions, and rewards for a worked example
+
+## Output Format
+
+A structured explanation covering:
+1. Q-learning update rule with explanation of each component
+2. Step-by-step worked numerical example of one/more Q-value updates
+3. Description of Q-table evolution across episodes
+4. Discussion of convergence conditions and behavior
+
+Optional: A small code snippet or table showing Q-value updates over a few iterations.
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- Numerical example must be consistent and correctly computed
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Formula Accuracy | Correct statement and explanation of Q-learning update rule | 25% |
+| Worked Example Quality | Correctness and clarity of numerical illustration | 30% |
+| Convergence Discussion | Depth of explanation on convergence behavior/conditions | 30% |
+| Clarity & Presentation | Logical flow, structure | 15% |
+
+---
+
+# Question 10
+
+## Problem Statement
+
+RL algorithms differ in whether they learn about the policy being followed (**on-policy**) or a different, often optimal, target policy (**off-policy**). The task is to differentiate between on-policy and off-policy learning methods, and assess their respective advantages and limitations in practical applications.
+
+## Objectives
+
+- Define on-policy and off-policy learning with representative algorithms (e.g., SARSA vs. Q-learning).
+- Explain the key structural difference in how each updates its value estimates.
+- Assess advantages of each approach (e.g., stability vs. sample efficiency/data reuse).
+- Assess limitations of each approach in practical, real-world applications.
+
+## Eligibility
+
+- Open to participants with foundational understanding of value-based RL methods.
+
+## Challenge Rules
+
+- Both learning types must be defined with at least one representative algorithm each.
+- The core distinction (behavior policy vs. target policy) must be explicitly explained.
+- A structured comparison of advantages/limitations must be provided.
+- Practical application context (e.g., use of off-policy for experience replay) should be referenced.
+- Submissions must be original.
+
+## Programming Languages
+
+- Python (optional, referencing `gymnasium`/`stable-baselines3` for algorithmic context)
+- Pseudocode acceptable
+
+## Environment Setup
+
+- Python 3.8+ (optional); relevant RL libraries for conceptual context only
+
+## Input Format
+
+- Conceptual/theoretical prompt
+- Optional: a scenario comparing SARSA and Q-learning on the same environment
+
+## Output Format
+
+A structured explanation covering:
+1. Definitions of on-policy and off-policy learning with examples
+2. Core structural difference (behavior vs. target policy)
+3. Advantages of each approach
+4. Limitations of each approach in practical applications
+
+## Constraints
+
+- Recommended length: 250–400 words (suitable for a 5-mark answer)
+- No copyrighted textbook content verbatim
+
+## Evaluation Criteria
+
+| Criteria | Description | Weight |
+|---|---|---|
+| Conceptual Accuracy | Correct definitions and examples of on-policy/off-policy methods | 25% |
+| Differentiation Clarity | Clear explanation of the core structural distinction | 30% |
+| Practical Assessment | Depth of advantages/limitations analysis for real applications | 30% |
+| Clarity & Presentation | Logical flow, structure | 15% |
