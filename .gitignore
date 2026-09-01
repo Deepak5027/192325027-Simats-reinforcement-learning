@@ -1,0 +1,8 @@
+.gradle/
+**/.gradle/
+build/
+**/build/
+.dart_tool/
+.idea/
+.vscode/
+*.iml
